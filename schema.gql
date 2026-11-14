@@ -1,0 +1,85 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Experience {
+  achievements: [String!]!
+  company: String!
+  id: ID!
+  period: Period!
+  position: String!
+  projects: [Project!]!
+  summary: String
+}
+
+type Link {
+  id: ID!
+  kind: LinkKind!
+  label: String!
+  url: String!
+}
+
+enum LinkKind {
+  EMAIL
+  GITHUB
+  LINKEDIN
+  OTHER
+  TELEGRAM
+  WEBSITE
+}
+
+type Period {
+  """YYYY-MM, null for the current job"""
+  end: String
+  isCurrent: Boolean!
+  months: Int!
+
+  """YYYY-MM"""
+  start: String!
+}
+
+type Profile {
+  description: String!
+  experience: [Experience!]!
+  headline: String!
+  id: ID!
+  links: [Link!]!
+  location: String
+  name: String!
+  projects: [Project!]!
+  skills: [Skill!]!
+}
+
+type Project {
+  description: String!
+  id: ID!
+  name: String!
+  repositoryUrl: String
+  stack: [Skill!]!
+  url: String!
+}
+
+type Query {
+  profile: Profile!
+}
+
+type Skill {
+  category: SkillCategory!
+  id: ID!
+  level: SkillLevel!
+  name: String!
+}
+
+enum SkillCategory {
+  BACKEND
+  DATABASE
+  DEVOPS
+  FRONTEND
+  LANGUAGE
+}
+
+enum SkillLevel {
+  ADVANCED
+  BASIC
+  INTERMEDIATE
+}
